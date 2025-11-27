@@ -1,0 +1,123 @@
+/* Fonts */
+body {
+    font-family: 'Space Grotesk', sans-serif;
+}
+h1, h2, h3, h4, h5, h6, .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}
+
+/* 
+    ANIMATIONS 
+    High-energy, bouncy, energetic
+*/
+
+/* 1. Wiggle/Shake on Hover */
+@keyframes shake-wiggle {
+    0% { transform: scale(1.05) rotate(0deg); }
+    15% { transform: scale(1.1) rotate(-3deg); }
+    30% { transform: scale(1.1) rotate(3deg); }
+    45% { transform: scale(1.1) rotate(-3deg); }
+    60% { transform: scale(1.1) rotate(2deg); }
+    75% { transform: scale(1.1) rotate(-1deg); }
+    100% { transform: scale(1.05) rotate(0deg); }
+}
+
+/* Generic class for anything that should wiggle on hover */
+.wiggle-hover {
+    display: inline-block;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wiggle-hover:hover {
+    animation: shake-wiggle 0.5s ease-in-out forwards;
+    color: #fff; /* Optional text highlight */
+}
+
+/* Button-specific wiggle (includes scale) */
+.wiggle-btn {
+    display: inline-flex;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wiggle-btn:hover {
+    transform: scale(1.05);
+    animation: shake-wiggle 0.5s ease-in-out forwards;
+}
+
+.wiggle-btn:active {
+    transform: scale(0.95);
+}
+
+/* 2. Bouncy Card Hover Effect (Rotation + Scale) */
+.bounce-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+}
+
+.bounce-card:hover {
+    transform: scale(1.02) translateY(-5px);
+    z-index: 10;
+}
+
+/* 3. Scroll Reveal Animation Classes */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(80px) scale(0.9);
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Stagger delays handled in HTML via utility classes like .delay-100 */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* 4. Background Blob Float Animation */
+@keyframes blob-float {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+    animation: blob-float 10s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+/* Mobile Menu Transition */
+#mobile-menu {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform-origin: top;
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleY(0.9);
+}
+
+#mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scaleY(1);
+}
